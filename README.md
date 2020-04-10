@@ -1,3 +1,23 @@
+# Earth Rendered in Cesium/Resium
+
+Resium is a React component wrapper for Cesium, a geo-spatial rendering library.
+
+Resium Ref: https://github.com/darwin-education/resium 
+
+Cesium Ref: https://cesium.com/index.html 
+
+The real purpose of this project is to show how to mock Cesium in a
+Jest test.
+
+## Default View
+
+![doc/Earth.png](doc/Earth.png)
+
+## View of Address Search Result
+
+![doc/ZoomedEarth.png](doc/ZoomedEarth.png)
+
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
