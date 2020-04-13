@@ -2,27 +2,25 @@ import React, {useEffect, useRef, useState} from 'react';
 import './App.css';
 import {Cartesian3} from "cesium";
 
-import('./xxxx').then(module => {
-    // const {xxxx} = { ...module } // <== if uses a normal export
-    // This uses a default export
-    const xxxx = module.default;
-    console.log(xxxx("To be or not to be, that is the question"));
-});
-
-export default function App() {
+export default function App(props) {
+    const { mock } = { ...props }
     const position = Cartesian3.fromDegrees(-78.7714268, 35.6111252, 50);
-    const pixelSize = 10;
+    const pixelSize = 8;
 
-    const earthRef = useRef(null);
+    const earthRef = useRef(mock);
     const [loaded, setLoaded] = useState(null);
 
     useEffect(() => {
-        import('./Earth').then((module) => {
-            earthRef.current = module.default;
+        if (earthRef.current) {
             setLoaded(true);
-        });
-    }, [loaded]);
+        } else {
+            import('./Earth').then((module) => {
+                earthRef.current = module.default;
+                setLoaded(true);
+            });
+        }
+    }, []);
 
     const Earth = earthRef.current;
-    return Earth ? <Earth position={position} pixelSize={pixelSize}/> : null;
+    return loaded ? <Earth position={position} pixelSize={pixelSize}/> : null;
 }
