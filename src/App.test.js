@@ -1,9 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import {render} from '@testing-library/react';
 import App from './App';
 
+const mockEarth = () => <div data-testid={"testid"}/>;
+
 test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+    const { getByTestId }  = render(<App mock={mockEarth}/>);
+    const element = getByTestId('testid');
+    expect(element).toBeInTheDocument();
 });
