@@ -1,19 +1,16 @@
 import React from 'react';
 import {Entity, Viewer} from 'resium';
-import {Color} from 'cesium';
+import {Color, Cartesian3} from 'cesium';
 
 export default function Earth(props) {
-
-    const {position, pixelSize} = {...props};
-    const point = {pixelSize, color: Color.RED};
 
     return (
         <Viewer full>
             <Entity
                 description={"Balentine"}
                 name={"Fuquay-Varina, NC"}
-                position={position}
-                point={point}/>
+                position={Cartesian3.fromDegrees(-78.7714268, 35.6111252, 50)}
+                point={{pixelSize: 8, color: Color.RED}}/>
         </Viewer>
     );
 }

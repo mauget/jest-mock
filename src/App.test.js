@@ -2,10 +2,14 @@ import React from 'react';
 import {render} from '@testing-library/react';
 import App from './App';
 
-const mockEarth = () => <div data-testid={"testid"}/>;
+const mockEarth = (p) => <div data-testid={"testid"}/>;
 
-test('renders learn react link', () => {
-    const { getByTestId }  = render(<App mock={mockEarth}/>);
-    const element = getByTestId('testid');
-    expect(element).toBeInTheDocument();
+describe('App using derived Resium-Cesium component', () => {
+
+    test('loads', () => {
+        const {getByTestId} = render(<App mock={mockEarth}/>);
+        const element = getByTestId('testid');
+        expect(element).toBeInTheDocument();
+    });
+
 });
